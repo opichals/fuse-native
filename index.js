@@ -238,7 +238,7 @@ class Fuse extends Nanoresource {
       }
 
       function signal (nativeHandler, err, ...args) {
-        var arr = [nativeHandler, err, ...args]
+        var arr = [nativeHandler, err ? err : 0, ...args]
 
         if (defaults) {
           while (arr.length > 2 && arr[arr.length - 1] === undefined) arr.pop()

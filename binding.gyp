@@ -3,10 +3,10 @@
     "target_name": "fuse",
     "include_dirs": [
       "<!(node -e \"require('napi-macros')\")",
-      "<!(node -e \"require('fuse-shared-library/include')\")",
+      "<!(node -e \"console.log('/usr/local/include/fuse')\")",
     ],
     "libraries": [
-      "<!(node -e \"require('fuse-shared-library/lib')\")",
+      "<!(node -e \"console.log('/usr/local/lib/libfuse.dylib')\")",
     ],
     "sources": [
       "fuse-native.c"
@@ -29,7 +29,7 @@
     "dependencies": ["fuse"],
     "copies": [{
       "destination": "build/Release",
-      "files": [ "<!(node -e \"require('fuse-shared-library/lib')\")" ],
+      "files": [ "<!(node -e \"console.log('/usr/local/lib/libfuse.dylib')\")" ],
     }]
   }]
 }
